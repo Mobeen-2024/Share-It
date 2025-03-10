@@ -4,6 +4,7 @@ import { appwriteConfig } from "../appwrite/config";
 import { ID, Query } from "appwrite";
 import { parseStringfy } from "../utils";
 import { cookies } from "next/headers";
+import { avatarPlaceholderUrl } from "@/constants";
 
 const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
@@ -52,7 +53,7 @@ export const creatAccount = async ({
       {
         fullName,
         email,
-        avatar: "/public/assets/images/avatar.png",
+        avatar: avatarPlaceholderUrl,
         accountId,
       }
     );
