@@ -181,6 +181,11 @@
     @apply text-[40px] font-medium rounded-xl ring-brand shadow-drop-1 text-brand-100 justify-center flex border-2 border-light-300 size-12 md:size-16 gap-5 !important;
   }
 
+  /* Shad-Sheet */
+  .shad-sheet {
+    @apply pt-0 !important;
+  }
+
   /* OTP Modal */
   .otp-close-button {
     @apply absolute -right-1 -top-7 cursor-pointer sm:-right-2 sm:-top-4  !important;
@@ -230,5 +235,28 @@
   }
   .nav-icon-active {
     @apply invert-0 opacity-100 !important;
+  }
+
+  /* Mobile Navigation */
+  .mobile-header {
+    @apply flex h-[60px] justify-between px-5 sm:hidden !important;
+  }
+  .header-user {
+    @apply my-3 flex items-center gap-2 rounded-full p-1 text-light-100 sm:justify-center sm:bg-brand/10 lg:justify-start lg:p-3 !important;
+  }
+  .header-user-avatar {
+    @apply aspect-square w-10 rounded-full object-cover !important;
+  }
+  .mobile-nav {
+    @apply h5 flex-1 gap-1 text-brand !important;
+  }
+  .mobile-nav-list {
+    @apply flex flex-1 flex-col gap-4 !important;
+  }
+  .mobile-nav-item {
+    @apply flex text-light-100 gap-4 w-full justify-start items-center h5 px-6 h-[52px] rounded-full !important;
+  }
+  .mobile-sign-out-button {
+    @apply h5 flex h-[52px] w-full items-center gap-4 rounded-full bg-brand/10 px-6 text-brand shadow-none transition-all hover:bg-brand/20 !important;
   }
 }
