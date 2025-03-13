@@ -5,6 +5,7 @@ import { ID, Query } from "appwrite";
 import { parseStringfy } from "../utils";
 import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
+import { NextResponse } from "next/server";
 
 const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
@@ -92,7 +93,17 @@ export const getCurrentUser = async () => {
     [Query.equal("accountId", result.$id)]
   );
   if (user.total <= 0) return null;
-  {
-    return parseStringfy(user.documents[0]);
+  return parseStringfy(user.documents[0]);
+};
+
+export const signOutUser = async () => {
+  const { account } = await createSessionClient();
+  try {
+    await account.deleteSession("current");
+    (await cookies()).delete("appwrite-session");
+  } catch (error) {
+    handleError(error, "Failed to sign out user");
+  } finally {
+    return NextResponse.redirect("/sign-in", 302);
   }
 };
